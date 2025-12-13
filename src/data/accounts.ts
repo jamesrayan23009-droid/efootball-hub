@@ -1,0 +1,182 @@
+export interface Player {
+  name: string;
+  rating: number;
+  position: string;
+}
+
+export interface Account {
+  id: string;
+  title: string;
+  teamStrength: number;
+  price: number;
+  originalPrice?: number;
+  players: Player[];
+  legendaryCount: number;
+  epicCount: number;
+  coins: number;
+  level: number;
+  platform: "mobile" | "console" | "pc";
+  verified: boolean;
+  featured?: boolean;
+}
+
+export const accounts: Account[] = [
+  {
+    id: "1",
+    title: "Ultimate Dream Team",
+    teamStrength: 5842,
+    price: 299.99,
+    originalPrice: 399.99,
+    players: [
+      { name: "Messi", rating: 101, position: "RWF" },
+      { name: "Ronaldo", rating: 100, position: "CF" },
+      { name: "Mbappé", rating: 99, position: "LWF" },
+      { name: "Haaland", rating: 98, position: "CF" },
+      { name: "De Bruyne", rating: 97, position: "AMF" },
+    ],
+    legendaryCount: 28,
+    epicCount: 45,
+    coins: 2500000,
+    level: 85,
+    platform: "mobile",
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "2",
+    title: "Barcelona Legends",
+    teamStrength: 5234,
+    price: 189.99,
+    players: [
+      { name: "Messi", rating: 101, position: "RWF" },
+      { name: "Xavi", rating: 96, position: "CMF" },
+      { name: "Iniesta", rating: 95, position: "CMF" },
+      { name: "Puyol", rating: 94, position: "CB" },
+      { name: "Pedri", rating: 93, position: "AMF" },
+    ],
+    legendaryCount: 18,
+    epicCount: 32,
+    coins: 1200000,
+    level: 72,
+    platform: "mobile",
+    verified: true,
+  },
+  {
+    id: "3",
+    title: "Galácticos Collection",
+    teamStrength: 5456,
+    price: 249.99,
+    originalPrice: 299.99,
+    players: [
+      { name: "Ronaldo", rating: 100, position: "CF" },
+      { name: "Benzema", rating: 96, position: "CF" },
+      { name: "Vinícius Jr", rating: 95, position: "LWF" },
+      { name: "Modrić", rating: 95, position: "CMF" },
+      { name: "Kroos", rating: 94, position: "CMF" },
+    ],
+    legendaryCount: 22,
+    epicCount: 38,
+    coins: 1800000,
+    level: 78,
+    platform: "console",
+    verified: true,
+    featured: true,
+  },
+  {
+    id: "4",
+    title: "Premier League Stars",
+    teamStrength: 4987,
+    price: 149.99,
+    players: [
+      { name: "Haaland", rating: 98, position: "CF" },
+      { name: "Salah", rating: 96, position: "RWF" },
+      { name: "De Bruyne", rating: 97, position: "AMF" },
+      { name: "Van Dijk", rating: 95, position: "CB" },
+      { name: "Alexander-Arnold", rating: 93, position: "RB" },
+    ],
+    legendaryCount: 15,
+    epicCount: 28,
+    coins: 980000,
+    level: 65,
+    platform: "mobile",
+    verified: true,
+  },
+  {
+    id: "5",
+    title: "French Connection",
+    teamStrength: 5123,
+    price: 179.99,
+    players: [
+      { name: "Mbappé", rating: 99, position: "LWF" },
+      { name: "Griezmann", rating: 94, position: "SS" },
+      { name: "Kanté", rating: 94, position: "DMF" },
+      { name: "Benzema", rating: 96, position: "CF" },
+      { name: "Varane", rating: 92, position: "CB" },
+    ],
+    legendaryCount: 19,
+    epicCount: 35,
+    coins: 1450000,
+    level: 70,
+    platform: "pc",
+    verified: true,
+  },
+  {
+    id: "6",
+    title: "Serie A Masters",
+    teamStrength: 4756,
+    price: 119.99,
+    players: [
+      { name: "Osimhen", rating: 93, position: "CF" },
+      { name: "Di María", rating: 92, position: "RWF" },
+      { name: "Chiesa", rating: 91, position: "LWF" },
+      { name: "Barella", rating: 92, position: "CMF" },
+      { name: "Maignan", rating: 91, position: "GK" },
+    ],
+    legendaryCount: 12,
+    epicCount: 25,
+    coins: 750000,
+    level: 58,
+    platform: "mobile",
+    verified: true,
+  },
+  {
+    id: "7",
+    title: "Bundesliga Elite",
+    teamStrength: 4892,
+    price: 139.99,
+    players: [
+      { name: "Musiala", rating: 94, position: "AMF" },
+      { name: "Sané", rating: 93, position: "LWF" },
+      { name: "Kimmich", rating: 94, position: "DMF" },
+      { name: "Neuer", rating: 93, position: "GK" },
+      { name: "Müller", rating: 92, position: "SS" },
+    ],
+    legendaryCount: 14,
+    epicCount: 30,
+    coins: 890000,
+    level: 62,
+    platform: "console",
+    verified: true,
+  },
+  {
+    id: "8",
+    title: "Argentina World Champions",
+    teamStrength: 5567,
+    price: 269.99,
+    originalPrice: 329.99,
+    players: [
+      { name: "Messi", rating: 101, position: "RWF" },
+      { name: "Di María", rating: 92, position: "LWF" },
+      { name: "Álvarez", rating: 90, position: "CF" },
+      { name: "Fernández", rating: 91, position: "CMF" },
+      { name: "Romero", rating: 90, position: "CB" },
+    ],
+    legendaryCount: 24,
+    epicCount: 42,
+    coins: 2100000,
+    level: 80,
+    platform: "mobile",
+    verified: true,
+    featured: true,
+  },
+];
