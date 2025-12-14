@@ -14,6 +14,12 @@ const platformIcons = {
   pc: Monitor,
 };
 
+const platformNames = {
+  mobile: "الجوال",
+  console: "الكونسول",
+  pc: "الكمبيوتر",
+};
+
 export function AccountCard({ account, index }: AccountCardProps) {
   const PlatformIcon = platformIcons[account.platform];
   const discount = account.originalPrice
@@ -27,17 +33,17 @@ export function AccountCard({ account, index }: AccountCardProps) {
     >
       {/* Featured badge */}
       {account.featured && (
-        <div className="absolute left-0 top-0 z-10">
-          <div className="flex items-center gap-1 rounded-br-lg bg-accent px-3 py-1.5">
+        <div className="absolute right-0 top-0 z-10">
+          <div className="flex items-center gap-1 rounded-bl-lg bg-accent px-3 py-1.5">
             <Crown className="h-3.5 w-3.5 text-accent-foreground" />
-            <span className="text-xs font-bold text-accent-foreground">FEATURED</span>
+            <span className="text-xs font-bold text-accent-foreground">مميز</span>
           </div>
         </div>
       )}
 
       {/* Discount badge */}
       {discount > 0 && (
-        <div className="absolute right-3 top-3 z-10">
+        <div className="absolute left-3 top-3 z-10">
           <Badge className="bg-destructive font-bold">-{discount}%</Badge>
         </div>
       )}
@@ -49,11 +55,11 @@ export function AccountCard({ account, index }: AccountCardProps) {
             <h3 className="font-heading text-xl font-bold leading-tight">{account.title}</h3>
             <div className="mt-2 flex items-center gap-2">
               <PlatformIcon className="h-4 w-4 text-muted-foreground" />
-              <span className="text-sm capitalize text-muted-foreground">{account.platform}</span>
+              <span className="text-sm text-muted-foreground">{platformNames[account.platform]}</span>
               {account.verified && (
                 <div className="flex items-center gap-1 text-primary">
                   <Shield className="h-3.5 w-3.5" />
-                  <span className="text-xs font-medium">Verified</span>
+                  <span className="text-xs font-medium">موثق</span>
                 </div>
               )}
             </div>
@@ -64,8 +70,8 @@ export function AccountCard({ account, index }: AccountCardProps) {
         <div className="mt-4">
           <div className="inline-flex items-center gap-2 rounded-lg bg-card px-4 py-2 shadow-sm">
             <Star className="h-5 w-5 text-accent" />
-            <span className="font-heading text-2xl font-bold">{account.teamStrength.toLocaleString()}</span>
-            <span className="text-sm text-muted-foreground">Team Strength</span>
+            <span className="font-heading text-2xl font-bold">{account.teamStrength.toLocaleString('ar-EG')}</span>
+            <span className="text-sm text-muted-foreground">قوة الفريق</span>
           </div>
         </div>
       </div>
@@ -73,7 +79,7 @@ export function AccountCard({ account, index }: AccountCardProps) {
       {/* Top players */}
       <div className="border-b border-border p-4">
         <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          Top Players
+          أفضل اللاعبين
         </p>
         <div className="flex flex-wrap gap-1.5">
           {account.players.slice(0, 4).map((player) => (
@@ -87,7 +93,7 @@ export function AccountCard({ account, index }: AccountCardProps) {
           ))}
           {account.players.length > 4 && (
             <div className="flex items-center rounded-full bg-muted px-2.5 py-1">
-              <span className="text-xs text-muted-foreground">+{account.players.length - 4} more</span>
+              <span className="text-xs text-muted-foreground">+{account.players.length - 4} المزيد</span>
             </div>
           )}
         </div>
@@ -100,21 +106,21 @@ export function AccountCard({ account, index }: AccountCardProps) {
             <Crown className="h-4 w-4 text-accent" />
             <span className="font-heading text-lg font-bold">{account.legendaryCount}</span>
           </div>
-          <p className="text-xs text-muted-foreground">Legendary</p>
+          <p className="text-xs text-muted-foreground">أسطوري</p>
         </div>
         <div className="text-center">
           <div className="flex items-center justify-center gap-1">
             <Star className="h-4 w-4 text-primary" />
             <span className="font-heading text-lg font-bold">{account.epicCount}</span>
           </div>
-          <p className="text-xs text-muted-foreground">Epic</p>
+          <p className="text-xs text-muted-foreground">ملحمي</p>
         </div>
         <div className="text-center">
           <div className="flex items-center justify-center gap-1">
             <Coins className="h-4 w-4 text-accent" />
             <span className="font-heading text-lg font-bold">{(account.coins / 1000000).toFixed(1)}M</span>
           </div>
-          <p className="text-xs text-muted-foreground">Coins</p>
+          <p className="text-xs text-muted-foreground">عملات</p>
         </div>
       </div>
 
@@ -131,7 +137,7 @@ export function AccountCard({ account, index }: AccountCardProps) {
           </div>
         </div>
         <Button className="font-semibold transition-all group-hover:shadow-md group-hover:shadow-primary/20">
-          View Details
+          عرض التفاصيل
         </Button>
       </div>
     </div>
