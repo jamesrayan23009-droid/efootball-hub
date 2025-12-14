@@ -11,7 +11,7 @@ export function Header() {
             <Gamepad2 className="h-6 w-6 text-primary-foreground" />
           </div>
           <span className="font-heading text-2xl font-bold tracking-tight">
-            eFootball<span className="text-primary">Market</span>
+            سوق<span className="text-primary">eFootball</span>
           </span>
         </div>
 
@@ -20,19 +20,19 @@ export function Header() {
             href="#accounts"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            Accounts
+            الحسابات
           </a>
           <a
             href="#featured"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            Featured
+            المميز
           </a>
           <a
             href="#how-it-works"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            How It Works
+            كيف يعمل
           </a>
         </nav>
 
@@ -40,12 +40,12 @@ export function Header() {
           <ThemeToggle />
           <Button variant="ghost" size="icon" className="relative">
             <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -right-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+            <span className="absolute -left-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
               0
             </span>
           </Button>
           <Button className="hidden font-semibold sm:inline-flex">
-            Sign In
+            تسجيل الدخول
           </Button>
         </div>
       </div>

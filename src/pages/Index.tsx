@@ -6,7 +6,6 @@ import { AccountCard } from "@/components/AccountCard";
 import { Footer } from "@/components/Footer";
 import { accounts } from "@/data/accounts";
 import { Button } from "@/components/ui/button";
-import { LayoutGrid, List } from "lucide-react";
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -26,13 +25,21 @@ const Index = () => {
   const filteredAccounts = useMemo(() => {
     let result = [...accounts];
 
-    // Search filter
+    // Search filter - supports both English player names and Arabic search terms
     if (searchQuery) {
       const query = searchQuery.toLowerCase();
+      const arabicToEnglish: Record<string, string> = {
+        "ميسي": "messi",
+        "رونالدو": "ronaldo",
+        "مبابي": "mbappé",
+        "هالاند": "haaland",
+      };
+      const englishQuery = arabicToEnglish[query] || query;
+      
       result = result.filter((account) =>
         account.players.some((player) =>
-          player.name.toLowerCase().includes(query)
-        ) || account.title.toLowerCase().includes(query)
+          player.name.toLowerCase().includes(englishQuery)
+        ) || account.title.toLowerCase().includes(englishQuery)
       );
     }
 
@@ -84,10 +91,10 @@ const Index = () => {
             <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h2 className="font-heading text-3xl font-bold">
-                  Available Accounts
+                  الحسابات المتاحة
                 </h2>
                 <p className="mt-1 text-muted-foreground">
-                  {filteredAccounts.length} account{filteredAccounts.length !== 1 ? "s" : ""} found
+                  تم العثور على {filteredAccounts.length} حساب
                 </p>
               </div>
             </div>
@@ -121,16 +128,16 @@ const Index = () => {
                 ) : (
                   <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border bg-card/50 py-20 text-center">
                     <div className="mb-4 text-6xl">🎮</div>
-                    <h3 className="font-heading text-xl font-bold">No accounts found</h3>
+                    <h3 className="font-heading text-xl font-bold">لم يتم العثور على حسابات</h3>
                     <p className="mt-2 text-muted-foreground">
-                      Try adjusting your filters or search query
+                      حاول تعديل التصفية أو كلمة البحث
                     </p>
                     <Button
                       variant="outline"
                       className="mt-4"
                       onClick={resetFilters}
                     >
-                      Reset Filters
+                      إعادة تعيين التصفية
                     </Button>
                   </div>
                 )}

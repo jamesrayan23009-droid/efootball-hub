@@ -1,4 +1,4 @@
-import { Filter, SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
@@ -39,10 +39,10 @@ export function Filters({
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <SlidersHorizontal className="h-5 w-5 text-primary" />
-          <h2 className="font-heading text-lg font-bold">Filters</h2>
+          <h2 className="font-heading text-lg font-bold">التصفية</h2>
         </div>
         <Button variant="ghost" size="sm" onClick={onReset} className="text-muted-foreground">
-          Reset
+          إعادة تعيين
         </Button>
       </div>
 
@@ -50,7 +50,7 @@ export function Filters({
         {/* Team Strength Filter */}
         <div className="space-y-3">
           <Label className="text-sm font-medium">
-            Min Team Strength: <span className="text-primary font-bold">{minTeamStrength.toLocaleString()}</span>
+            الحد الأدنى لقوة الفريق: <span className="text-primary font-bold">{minTeamStrength.toLocaleString('ar-EG')}</span>
           </Label>
           <Slider
             value={[minTeamStrength]}
@@ -61,40 +61,40 @@ export function Filters({
             className="py-2"
           />
           <div className="flex justify-between text-xs text-muted-foreground">
-            <span>0</span>
-            <span>6,000</span>
+            <span>٦,٠٠٠</span>
+            <span>٠</span>
           </div>
         </div>
 
         {/* Platform Filter */}
         <div className="space-y-3">
-          <Label className="text-sm font-medium">Platform</Label>
+          <Label className="text-sm font-medium">المنصة</Label>
           <Select value={platform} onValueChange={onPlatformChange}>
             <SelectTrigger className="bg-secondary/50">
-              <SelectValue placeholder="All Platforms" />
+              <SelectValue placeholder="جميع المنصات" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">All Platforms</SelectItem>
-              <SelectItem value="mobile">Mobile</SelectItem>
-              <SelectItem value="console">Console</SelectItem>
-              <SelectItem value="pc">PC</SelectItem>
+              <SelectItem value="all">جميع المنصات</SelectItem>
+              <SelectItem value="mobile">الجوال</SelectItem>
+              <SelectItem value="console">الكونسول</SelectItem>
+              <SelectItem value="pc">الكمبيوتر</SelectItem>
             </SelectContent>
           </Select>
         </div>
 
         {/* Sort By */}
         <div className="space-y-3">
-          <Label className="text-sm font-medium">Sort By</Label>
+          <Label className="text-sm font-medium">ترتيب حسب</Label>
           <Select value={sortBy} onValueChange={onSortByChange}>
             <SelectTrigger className="bg-secondary/50">
-              <SelectValue placeholder="Sort by" />
+              <SelectValue placeholder="ترتيب حسب" />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="featured">Featured</SelectItem>
-              <SelectItem value="price-low">Price: Low to High</SelectItem>
-              <SelectItem value="price-high">Price: High to Low</SelectItem>
-              <SelectItem value="strength-high">Team Strength: High to Low</SelectItem>
-              <SelectItem value="strength-low">Team Strength: Low to High</SelectItem>
+              <SelectItem value="featured">المميز</SelectItem>
+              <SelectItem value="price-low">السعر: من الأقل للأعلى</SelectItem>
+              <SelectItem value="price-high">السعر: من الأعلى للأقل</SelectItem>
+              <SelectItem value="strength-high">قوة الفريق: من الأعلى للأقل</SelectItem>
+              <SelectItem value="strength-low">قوة الفريق: من الأقل للأعلى</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -108,7 +108,7 @@ export function Filters({
             className="data-[state=checked]:bg-primary data-[state=checked]:border-primary"
           />
           <Label htmlFor="verified" className="cursor-pointer text-sm font-medium">
-            Verified accounts only
+            الحسابات الموثقة فقط
           </Label>
         </div>
       </div>
