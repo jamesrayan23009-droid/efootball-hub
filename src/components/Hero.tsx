@@ -1,6 +1,7 @@
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/i18n/LanguageProvider";
 import heroBg from "@/assets/hero-bg.jpg";
 
 interface HeroProps {
@@ -9,6 +10,8 @@ interface HeroProps {
 }
 
 export function Hero({ searchQuery, onSearchChange }: HeroProps) {
+  const { t, isRTL } = useLanguage();
+
   return (
     <section className="relative overflow-hidden py-20 md:py-32">
       {/* Background image */}
@@ -33,17 +36,16 @@ export function Hero({ searchQuery, onSearchChange }: HeroProps) {
       <div className="container relative">
         <div className="mx-auto max-w-3xl text-center">
           <h1 className="animate-fade-in font-heading text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl">
-            حسابات{" "}
-            <span className="text-glow text-primary">eFootball</span>{" "}
-            المميزة
+            {t.hero.title}{" "}
+            <span className="text-glow text-primary">{t.hero.titleBrand}</span>{" "}
+            {t.hero.titleSuffix}
           </h1>
 
           <p
             className="mx-auto mt-6 max-w-xl text-lg text-muted-foreground opacity-0 animate-fade-in"
             style={{ animationDelay: "0.1s" }}
           >
-            اعثر على فريقك المثالي مع أفضل اللاعبين، قوة فريق عالية،
-            وبطاقات أسطورية. تداول بأمان في سوقنا الموثوق.
+            {t.hero.subtitle}
           </p>
 
           <div
@@ -51,19 +53,19 @@ export function Hero({ searchQuery, onSearchChange }: HeroProps) {
             style={{ animationDelay: "0.2s" }}
           >
             <div className="relative">
-              <Search className="absolute right-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
+              <Search className={`absolute top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground ${isRTL ? "right-4" : "left-4"}`} />
               <Input
                 type="text"
-                placeholder="ابحث باسم اللاعب (مثال: ميسي، رونالدو، مبابي)..."
+                placeholder={t.hero.searchPlaceholder}
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
-                className="h-14 rounded-full border-2 border-border bg-card/90 backdrop-blur-sm pr-12 pl-32 text-base shadow-lg transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
+                className={`h-14 rounded-full border-2 border-border bg-card/90 backdrop-blur-sm text-base shadow-lg transition-all focus:border-primary focus:ring-2 focus:ring-primary/20 ${isRTL ? "pr-12 pl-32" : "pl-12 pr-32"}`}
               />
               <Button
-                className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full px-6 font-semibold"
+                className={`absolute top-1/2 -translate-y-1/2 rounded-full px-6 font-semibold ${isRTL ? "left-2" : "right-2"}`}
                 size="lg"
               >
-                بحث
+                {t.hero.search}
               </Button>
             </div>
           </div>
@@ -72,8 +74,8 @@ export function Hero({ searchQuery, onSearchChange }: HeroProps) {
             className="mt-8 flex flex-wrap items-center justify-center gap-4 opacity-0 animate-fade-in"
             style={{ animationDelay: "0.3s" }}
           >
-            <span className="text-sm text-muted-foreground">الأكثر بحثاً:</span>
-            {["ميسي", "رونالدو", "مبابي", "هالاند"].map((player) => (
+            <span className="text-sm text-muted-foreground">{t.hero.popular}</span>
+            {t.hero.popularPlayers.map((player) => (
               <button
                 key={player}
                 onClick={() => onSearchChange(player)}

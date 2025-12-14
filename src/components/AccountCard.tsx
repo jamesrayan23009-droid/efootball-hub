@@ -2,6 +2,7 @@ import { Crown, Shield, Star, Coins, Monitor, Smartphone, Gamepad } from "lucide
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Account } from "@/data/accounts";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 // Import team images
 import team1 from "@/assets/team-1.jpg";
@@ -24,12 +25,6 @@ const platformIcons = {
   pc: Monitor,
 };
 
-const platformNames = {
-  mobile: "الجوال",
-  console: "الكونسول",
-  pc: "الكمبيوتر",
-};
-
 const teamImages: Record<string, string> = {
   "1": team1,
   "2": team2,
@@ -42,12 +37,22 @@ const teamImages: Record<string, string> = {
 };
 
 export function AccountCard({ account, index }: AccountCardProps) {
+  const { t, language, isRTL } = useLanguage();
+  
   const PlatformIcon = platformIcons[account.platform];
   const discount = account.originalPrice
     ? Math.round((1 - account.price / account.originalPrice) * 100)
     : 0;
 
   const teamImage = teamImages[account.id] || team1;
+  
+  const platformNames = {
+    mobile: t.filters.mobile,
+    console: t.filters.console,
+    pc: t.filters.pc,
+  };
+
+  const accountTitle = t.accountTitles[account.id as keyof typeof t.accountTitles] || account.title;
 
   return (
     <div
@@ -58,7 +63,7 @@ export function AccountCard({ account, index }: AccountCardProps) {
       <div className="relative h-48 overflow-hidden">
         <img 
           src={teamImage} 
-          alt={account.title}
+          alt={accountTitle}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
         
@@ -67,17 +72,17 @@ export function AccountCard({ account, index }: AccountCardProps) {
         
         {/* Featured badge */}
         {account.featured && (
-          <div className="absolute right-0 top-0 z-10">
-            <div className="flex items-center gap-1 rounded-bl-lg bg-accent px-3 py-1.5">
+          <div className={`absolute top-0 z-10 ${isRTL ? "right-0" : "left-0"}`}>
+            <div className={`flex items-center gap-1 bg-accent px-3 py-1.5 ${isRTL ? "rounded-bl-lg" : "rounded-br-lg"}`}>
               <Crown className="h-3.5 w-3.5 text-accent-foreground" />
-              <span className="text-xs font-bold text-accent-foreground">مميز</span>
+              <span className="text-xs font-bold text-accent-foreground">{t.card.featured}</span>
             </div>
           </div>
         )}
 
         {/* Discount badge */}
         {discount > 0 && (
-          <div className="absolute left-3 top-3 z-10">
+          <div className={`absolute top-3 z-10 ${isRTL ? "left-3" : "right-3"}`}>
             <Badge className="bg-destructive font-bold">-{discount}%</Badge>
           </div>
         )}
@@ -86,7 +91,7 @@ export function AccountCard({ account, index }: AccountCardProps) {
         <div className="absolute bottom-3 right-3 left-3 flex items-end justify-between">
           <div className="inline-flex items-center gap-2 rounded-lg bg-card/90 backdrop-blur-sm px-3 py-2 shadow-lg">
             <Star className="h-5 w-5 text-accent" />
-            <span className="font-heading text-xl font-bold">{account.teamStrength.toLocaleString('ar-EG')}</span>
+            <span className="font-heading text-xl font-bold">{account.teamStrength.toLocaleString(language === 'ar' ? 'ar-EG' : 'en-US')}</span>
           </div>
           
           <div className="flex items-center gap-2">
@@ -97,7 +102,7 @@ export function AccountCard({ account, index }: AccountCardProps) {
             {account.verified && (
               <div className="flex items-center gap-1 rounded-lg bg-primary/90 backdrop-blur-sm px-2.5 py-1.5">
                 <Shield className="h-3.5 w-3.5 text-primary-foreground" />
-                <span className="text-xs font-medium text-primary-foreground">موثق</span>
+                <span className="text-xs font-medium text-primary-foreground">{t.card.verified}</span>
               </div>
             )}
           </div>
@@ -106,13 +111,13 @@ export function AccountCard({ account, index }: AccountCardProps) {
 
       {/* Title */}
       <div className="p-4 pb-2">
-        <h3 className="font-heading text-xl font-bold leading-tight">{account.title}</h3>
+        <h3 className="font-heading text-xl font-bold leading-tight">{accountTitle}</h3>
       </div>
 
       {/* Top players */}
       <div className="border-b border-border px-4 pb-4">
         <p className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-          أفضل اللاعبين
+          {t.card.topPlayers}
         </p>
         <div className="flex flex-wrap gap-1.5">
           {account.players.slice(0, 4).map((player) => (
@@ -126,7 +131,7 @@ export function AccountCard({ account, index }: AccountCardProps) {
           ))}
           {account.players.length > 4 && (
             <div className="flex items-center rounded-full bg-muted px-2.5 py-1">
-              <span className="text-xs text-muted-foreground">+{account.players.length - 4} المزيد</span>
+              <span className="text-xs text-muted-foreground">+{account.players.length - 4} {t.card.more}</span>
             </div>
           )}
         </div>
@@ -139,21 +144,21 @@ export function AccountCard({ account, index }: AccountCardProps) {
             <Crown className="h-4 w-4 text-accent" />
             <span className="font-heading text-lg font-bold">{account.legendaryCount}</span>
           </div>
-          <p className="text-xs text-muted-foreground">أسطوري</p>
+          <p className="text-xs text-muted-foreground">{t.card.legendary}</p>
         </div>
         <div className="text-center">
           <div className="flex items-center justify-center gap-1">
             <Star className="h-4 w-4 text-primary" />
             <span className="font-heading text-lg font-bold">{account.epicCount}</span>
           </div>
-          <p className="text-xs text-muted-foreground">ملحمي</p>
+          <p className="text-xs text-muted-foreground">{t.card.epic}</p>
         </div>
         <div className="text-center">
           <div className="flex items-center justify-center gap-1">
             <Coins className="h-4 w-4 text-accent" />
             <span className="font-heading text-lg font-bold">{(account.coins / 1000000).toFixed(1)}M</span>
           </div>
-          <p className="text-xs text-muted-foreground">عملات</p>
+          <p className="text-xs text-muted-foreground">{t.card.coins}</p>
         </div>
       </div>
 
@@ -170,7 +175,7 @@ export function AccountCard({ account, index }: AccountCardProps) {
           </div>
         </div>
         <Button className="font-semibold transition-all group-hover:shadow-md group-hover:shadow-primary/20">
-          عرض التفاصيل
+          {t.card.viewDetails}
         </Button>
       </div>
     </div>

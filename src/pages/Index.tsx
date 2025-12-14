@@ -6,8 +6,10 @@ import { AccountCard } from "@/components/AccountCard";
 import { Footer } from "@/components/Footer";
 import { accounts } from "@/data/accounts";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 const Index = () => {
+  const { t, language } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
   const [minTeamStrength, setMinTeamStrength] = useState(0);
   const [platform, setPlatform] = useState("all");
@@ -91,10 +93,10 @@ const Index = () => {
             <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div>
                 <h2 className="font-heading text-3xl font-bold">
-                  الحسابات المتاحة
+                  {t.accountsSection.title}
                 </h2>
                 <p className="mt-1 text-muted-foreground">
-                  تم العثور على {filteredAccounts.length} حساب
+                  {filteredAccounts.length} {filteredAccounts.length === 1 ? t.accountsSection.foundSingular : t.accountsSection.found}
                 </p>
               </div>
             </div>
@@ -128,16 +130,16 @@ const Index = () => {
                 ) : (
                   <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border bg-card/50 py-20 text-center">
                     <div className="mb-4 text-6xl">🎮</div>
-                    <h3 className="font-heading text-xl font-bold">لم يتم العثور على حسابات</h3>
+                    <h3 className="font-heading text-xl font-bold">{t.accountsSection.noAccounts}</h3>
                     <p className="mt-2 text-muted-foreground">
-                      حاول تعديل التصفية أو كلمة البحث
+                      {t.accountsSection.noAccountsHint}
                     </p>
                     <Button
                       variant="outline"
                       className="mt-4"
                       onClick={resetFilters}
                     >
-                      إعادة تعيين التصفية
+                      {t.accountsSection.resetFilters}
                     </Button>
                   </div>
                 )}

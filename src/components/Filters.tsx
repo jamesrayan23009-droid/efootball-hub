@@ -10,6 +10,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 interface FiltersProps {
   minTeamStrength: number;
@@ -34,15 +35,17 @@ export function Filters({
   onSortByChange,
   onReset,
 }: FiltersProps) {
+  const { t, language } = useLanguage();
+
   return (
     <div className="rounded-xl border border-border bg-card p-6">
       <div className="mb-6 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <SlidersHorizontal className="h-5 w-5 text-primary" />
-          <h2 className="font-heading text-lg font-bold">التصفية</h2>
+          <h2 className="font-heading text-lg font-bold">{t.filters.title}</h2>
         </div>
         <Button variant="ghost" size="sm" onClick={onReset} className="text-muted-foreground">
-          إعادة تعيين
+          {t.filters.reset}
         </Button>
       </div>
 
@@ -50,7 +53,7 @@ export function Filters({
         {/* Team Strength Filter */}
         <div className="space-y-3">
           <Label className="text-sm font-medium">
-            الحد الأدنى لقوة الفريق: <span className="text-primary font-bold">{minTeamStrength.toLocaleString('ar-EG')}</span>
+            {t.filters.minTeamStrength} <span className="text-primary font-bold">{minTeamStrength.toLocaleString(language === 'ar' ? 'ar-EG' : 'en-US')}</span>
           </Label>
           <Slider
             value={[minTeamStrength]}
@@ -61,40 +64,40 @@ export function Filters({
             className="py-2"
           />
           <div className="flex justify-between text-xs text-muted-foreground">
-            <span>٦,٠٠٠</span>
-            <span>٠</span>
+            <span>{language === 'ar' ? '٠' : '0'}</span>
+            <span>{language === 'ar' ? '٦,٠٠٠' : '6,000'}</span>
           </div>
         </div>
 
         {/* Platform Filter */}
         <div className="space-y-3">
-          <Label className="text-sm font-medium">المنصة</Label>
+          <Label className="text-sm font-medium">{t.filters.platform}</Label>
           <Select value={platform} onValueChange={onPlatformChange}>
             <SelectTrigger className="bg-secondary/50">
-              <SelectValue placeholder="جميع المنصات" />
+              <SelectValue placeholder={t.filters.allPlatforms} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">جميع المنصات</SelectItem>
-              <SelectItem value="mobile">الجوال</SelectItem>
-              <SelectItem value="console">الكونسول</SelectItem>
-              <SelectItem value="pc">الكمبيوتر</SelectItem>
+              <SelectItem value="all">{t.filters.allPlatforms}</SelectItem>
+              <SelectItem value="mobile">{t.filters.mobile}</SelectItem>
+              <SelectItem value="console">{t.filters.console}</SelectItem>
+              <SelectItem value="pc">{t.filters.pc}</SelectItem>
             </SelectContent>
           </Select>
         </div>
 
         {/* Sort By */}
         <div className="space-y-3">
-          <Label className="text-sm font-medium">ترتيب حسب</Label>
+          <Label className="text-sm font-medium">{t.filters.sortBy}</Label>
           <Select value={sortBy} onValueChange={onSortByChange}>
             <SelectTrigger className="bg-secondary/50">
-              <SelectValue placeholder="ترتيب حسب" />
+              <SelectValue placeholder={t.filters.sortBy} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="featured">المميز</SelectItem>
-              <SelectItem value="price-low">السعر: من الأقل للأعلى</SelectItem>
-              <SelectItem value="price-high">السعر: من الأعلى للأقل</SelectItem>
-              <SelectItem value="strength-high">قوة الفريق: من الأعلى للأقل</SelectItem>
-              <SelectItem value="strength-low">قوة الفريق: من الأقل للأعلى</SelectItem>
+              <SelectItem value="featured">{t.filters.sortFeatured}</SelectItem>
+              <SelectItem value="price-low">{t.filters.sortPriceLow}</SelectItem>
+              <SelectItem value="price-high">{t.filters.sortPriceHigh}</SelectItem>
+              <SelectItem value="strength-high">{t.filters.sortStrengthHigh}</SelectItem>
+              <SelectItem value="strength-low">{t.filters.sortStrengthLow}</SelectItem>
             </SelectContent>
           </Select>
         </div>
@@ -108,7 +111,7 @@ export function Filters({
             className="data-[state=checked]:bg-primary data-[state=checked]:border-primary"
           />
           <Label htmlFor="verified" className="cursor-pointer text-sm font-medium">
-            الحسابات الموثقة فقط
+            {t.filters.verifiedOnly}
           </Label>
         </div>
       </div>
