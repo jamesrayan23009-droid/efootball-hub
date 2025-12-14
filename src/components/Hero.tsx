@@ -1,6 +1,7 @@
 import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import heroBg from "@/assets/hero-bg.jpg";
 
 interface HeroProps {
   searchQuery: string;
@@ -9,12 +10,15 @@ interface HeroProps {
 
 export function Hero({ searchQuery, onSearchChange }: HeroProps) {
   return (
-    <section className="relative overflow-hidden gradient-hero py-20 md:py-32">
-      {/* Background effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -right-1/4 top-0 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute -left-1/4 bottom-0 h-[400px] w-[400px] rounded-full bg-accent/10 blur-[100px]" />
-      </div>
+    <section className="relative overflow-hidden py-20 md:py-32">
+      {/* Background image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${heroBg})` }}
+      />
+      
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/70 to-background" />
 
       {/* Grid pattern */}
       <div
@@ -53,7 +57,7 @@ export function Hero({ searchQuery, onSearchChange }: HeroProps) {
                 placeholder="ابحث باسم اللاعب (مثال: ميسي، رونالدو، مبابي)..."
                 value={searchQuery}
                 onChange={(e) => onSearchChange(e.target.value)}
-                className="h-14 rounded-full border-2 border-border bg-card pr-12 pl-32 text-base shadow-lg transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
+                className="h-14 rounded-full border-2 border-border bg-card/90 backdrop-blur-sm pr-12 pl-32 text-base shadow-lg transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
               />
               <Button
                 className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full px-6 font-semibold"
@@ -73,7 +77,7 @@ export function Hero({ searchQuery, onSearchChange }: HeroProps) {
               <button
                 key={player}
                 onClick={() => onSearchChange(player)}
-                className="rounded-full border border-border bg-card/50 px-4 py-1.5 text-sm font-medium transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
+                className="rounded-full border border-border bg-card/50 backdrop-blur-sm px-4 py-1.5 text-sm font-medium transition-all hover:border-primary hover:bg-primary/10 hover:text-primary"
               >
                 {player}
               </button>
