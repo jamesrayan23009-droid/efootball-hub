@@ -1,8 +1,12 @@
 import { Gamepad2, ShoppingCart } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
+import { LanguageToggle } from "./LanguageToggle";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/i18n/LanguageProvider";
 
 export function Header() {
+  const { t, isRTL } = useLanguage();
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
@@ -11,7 +15,7 @@ export function Header() {
             <Gamepad2 className="h-6 w-6 text-primary-foreground" />
           </div>
           <span className="font-heading text-2xl font-bold tracking-tight">
-            سوق<span className="text-primary">eFootball</span>
+            {t.header.brand}<span className="text-primary">{t.header.brandSuffix}</span>
           </span>
         </div>
 
@@ -20,32 +24,33 @@ export function Header() {
             href="#accounts"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            الحسابات
+            {t.header.accounts}
           </a>
           <a
             href="#featured"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            المميز
+            {t.header.featured}
           </a>
           <a
             href="#how-it-works"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            كيف يعمل
+            {t.header.howItWorks}
           </a>
         </nav>
 
         <div className="flex items-center gap-2">
+          <LanguageToggle />
           <ThemeToggle />
           <Button variant="ghost" size="icon" className="relative">
             <ShoppingCart className="h-5 w-5" />
-            <span className="absolute -left-1 -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground">
+            <span className={`absolute -top-1 flex h-4 w-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold text-primary-foreground ${isRTL ? "-left-1" : "-right-1"}`}>
               0
             </span>
           </Button>
           <Button className="hidden font-semibold sm:inline-flex">
-            تسجيل الدخول
+            {t.header.signIn}
           </Button>
         </div>
       </div>

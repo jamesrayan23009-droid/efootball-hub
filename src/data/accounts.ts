@@ -23,7 +23,7 @@ export interface Account {
 export const accounts: Account[] = [
   {
     id: "1",
-    title: "فريق الأحلام المثالي",
+    title: "Ultimate Dream Team",
     teamStrength: 5842,
     price: 299.99,
     originalPrice: 399.99,
@@ -44,7 +44,7 @@ export const accounts: Account[] = [
   },
   {
     id: "2",
-    title: "أساطير برشلونة",
+    title: "Barcelona Legends",
     teamStrength: 5234,
     price: 189.99,
     players: [
@@ -63,7 +63,7 @@ export const accounts: Account[] = [
   },
   {
     id: "3",
-    title: "مجموعة الجالاكتيكوس",
+    title: "Galácticos Collection",
     teamStrength: 5456,
     price: 249.99,
     originalPrice: 299.99,
@@ -84,7 +84,7 @@ export const accounts: Account[] = [
   },
   {
     id: "4",
-    title: "نجوم الدوري الإنجليزي",
+    title: "Premier League Stars",
     teamStrength: 4987,
     price: 149.99,
     players: [
@@ -103,7 +103,7 @@ export const accounts: Account[] = [
   },
   {
     id: "5",
-    title: "الاتصال الفرنسي",
+    title: "French Connection",
     teamStrength: 5123,
     price: 179.99,
     players: [
@@ -122,7 +122,7 @@ export const accounts: Account[] = [
   },
   {
     id: "6",
-    title: "أساتذة الدوري الإيطالي",
+    title: "Serie A Masters",
     teamStrength: 4756,
     price: 119.99,
     players: [
@@ -141,7 +141,7 @@ export const accounts: Account[] = [
   },
   {
     id: "7",
-    title: "نخبة البوندسليغا",
+    title: "Bundesliga Elite",
     teamStrength: 4892,
     price: 139.99,
     players: [
@@ -160,7 +160,7 @@ export const accounts: Account[] = [
   },
   {
     id: "8",
-    title: "أبطال العالم الأرجنتين",
+    title: "Argentina World Champions",
     teamStrength: 5567,
     price: 269.99,
     originalPrice: 329.99,
