@@ -59,6 +59,22 @@ export const translations = {
       coins: "Coins",
       viewDetails: "View Details",
     },
+    // Product Details
+    productDetails: {
+      notFound: "Account not found",
+      backToHome: "Back to Home",
+      backToAccounts: "Back to Accounts",
+      screenshot: "Screenshot",
+      thumbnail: "Thumbnail",
+      price: "Price",
+      buyNow: "Buy Now",
+      level: "Level",
+      allPlayers: "All Players",
+      features: "Account Features",
+      feature1: "Verified & Secure Account Transfer",
+      feature2: "Premium Legendary Players Included",
+      feature3: "24/7 Customer Support",
+    },
     // Footer
     footer: {
       secureTrading: "Secure Trading",
@@ -158,6 +174,22 @@ export const translations = {
       epic: "ملحمي",
       coins: "عملات",
       viewDetails: "عرض التفاصيل",
+    },
+    // Product Details
+    productDetails: {
+      notFound: "الحساب غير موجود",
+      backToHome: "العودة للرئيسية",
+      backToAccounts: "العودة للحسابات",
+      screenshot: "لقطة شاشة",
+      thumbnail: "صورة مصغرة",
+      price: "السعر",
+      buyNow: "اشترِ الآن",
+      level: "المستوى",
+      allPlayers: "جميع اللاعبين",
+      features: "مميزات الحساب",
+      feature1: "نقل حساب موثق وآمن",
+      feature2: "لاعبين أسطوريين متضمنين",
+      feature3: "دعم فني على مدار الساعة",
     },
     // Footer
     footer: {

@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Account } from "@/data/accounts";
 import { useLanguage } from "@/i18n/LanguageProvider";
-
+import { useNavigate } from "react-router-dom";
 // Import team images
 import team1 from "@/assets/team-1.jpg";
 import team2 from "@/assets/team-2.jpg";
@@ -38,6 +38,7 @@ const teamImages: Record<string, string> = {
 
 export function AccountCard({ account, index }: AccountCardProps) {
   const { t, language, isRTL } = useLanguage();
+  const navigate = useNavigate();
   
   const PlatformIcon = platformIcons[account.platform];
   const discount = account.originalPrice
@@ -174,7 +175,10 @@ export function AccountCard({ account, index }: AccountCardProps) {
             ${account.price.toFixed(2)}
           </div>
         </div>
-        <Button className="font-semibold transition-all group-hover:shadow-md group-hover:shadow-primary/20">
+        <Button 
+          className="font-semibold transition-all group-hover:shadow-md group-hover:shadow-primary/20"
+          onClick={() => navigate(`/account/${account.id}`)}
+        >
           {t.card.viewDetails}
         </Button>
       </div>
