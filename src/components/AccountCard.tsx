@@ -4,15 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Account } from "@/data/accounts";
 import { useLanguage } from "@/i18n/LanguageProvider";
 import { useNavigate } from "react-router-dom";
-// Import team images
-import team1 from "@/assets/team-1.jpg";
-import team2 from "@/assets/team-2.jpg";
-import team3 from "@/assets/team-3.jpg";
-import team4 from "@/assets/team-4.jpg";
-import team5 from "@/assets/team-5.jpg";
-import team6 from "@/assets/team-6.jpg";
-import team7 from "@/assets/team-7.jpg";
-import team8 from "@/assets/team-8.jpg";
 
 interface AccountCardProps {
   account: Account;
@@ -25,17 +16,6 @@ const platformIcons = {
   pc: Monitor,
 };
 
-const teamImages: Record<string, string> = {
-  "1": team1,
-  "2": team2,
-  "3": team3,
-  "4": team4,
-  "5": team5,
-  "6": team6,
-  "7": team7,
-  "8": team8,
-};
-
 export function AccountCard({ account, index }: AccountCardProps) {
   const { t, language, isRTL } = useLanguage();
   const navigate = useNavigate();
@@ -44,8 +24,6 @@ export function AccountCard({ account, index }: AccountCardProps) {
   const discount = account.originalPrice
     ? Math.round((1 - account.price / account.originalPrice) * 100)
     : 0;
-
-  const teamImage = teamImages[account.id] || team1;
   
   const platformNames = {
     mobile: t.filters.mobile,
@@ -60,10 +38,9 @@ export function AccountCard({ account, index }: AccountCardProps) {
       className="group relative overflow-hidden rounded-xl border border-border bg-card transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5 opacity-0 animate-fade-in-up"
       style={{ animationDelay: `${index * 0.05}s` }}
     >
-      {/* Card header with team image */}
       <div className="relative h-48 overflow-hidden">
         <img 
-          src={teamImage} 
+          src={account.imageOverview} 
           alt={accountTitle}
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
         />
