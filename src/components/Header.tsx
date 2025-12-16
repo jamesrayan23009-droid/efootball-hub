@@ -27,10 +27,10 @@ export function Header() {
             {t.header.accounts}
           </a>
           <a
-            href="/#featured"
+            href="/coins"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
-            {t.header.featured}
+            {t.header.coins}
           </a>
           <a
             href="/#how-it-works"

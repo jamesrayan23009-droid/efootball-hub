@@ -8,6 +8,7 @@ import { LanguageProvider } from "@/i18n/LanguageProvider";
 import Index from "./pages/Index";
 import ProductDetails from "./pages/ProductDetails";
 import Proofs from "./pages/Proofs";
+import Coins from "./pages/Coins";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
               <Route path="/" element={<Index />} />
               <Route path="/account/:id" element={<ProductDetails />} />
               <Route path="/proofs" element={<Proofs />} />
+              <Route path="/coins" element={<Coins />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
