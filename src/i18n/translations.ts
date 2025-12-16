@@ -7,6 +7,7 @@ export const translations = {
       accounts: "Accounts",
       featured: "Featured",
       howItWorks: "How It Works",
+      proofs: "Proofs",
       signIn: "Sign In",
     },
     // Hero
@@ -103,6 +104,20 @@ export const translations = {
       cookie: "Cookie Policy",
       copyright: "© 2024 eFootballMarket. All rights reserved. Not affiliated with Konami.",
     },
+    // Proofs
+    proofs: {
+      title: "Customer Proofs",
+      subtitle: "See what our satisfied customers have to say about their purchases. Real transactions, real results.",
+      backToHome: "Back to Home",
+      happyCustomers: "Happy Customers",
+      satisfaction: "Satisfaction Rate",
+      delivery: "Fast Delivery",
+      averageRating: "Average Rating",
+      testimonial: "Amazing service! The account was exactly as described and the transfer was smooth. Highly recommended!",
+      ctaTitle: "Ready to Get Your Dream Account?",
+      ctaSubtitle: "Join hundreds of satisfied customers and find your perfect eFootball account today.",
+      browseAccounts: "Browse Accounts",
+    },
     // Account titles
     accountTitles: {
       "1": "Ultimate Dream Team",
@@ -123,6 +138,7 @@ export const translations = {
       accounts: "الحسابات",
       featured: "المميز",
       howItWorks: "كيف يعمل",
+      proofs: "إثباتات",
       signIn: "تسجيل الدخول",
     },
     // Hero
@@ -218,6 +234,20 @@ export const translations = {
       refund: "سياسة الاسترداد",
       cookie: "سياسة ملفات تعريف الارتباط",
       copyright: "© ٢٠٢٤ سوق eFootball. جميع الحقوق محفوظة. غير مرتبط بشركة كونامي.",
+    },
+    // Proofs
+    proofs: {
+      title: "إثباتات العملاء",
+      subtitle: "شاهد ما يقوله عملاؤنا الراضون عن مشترياتهم. معاملات حقيقية، نتائج حقيقية.",
+      backToHome: "العودة للرئيسية",
+      happyCustomers: "عملاء سعداء",
+      satisfaction: "نسبة الرضا",
+      delivery: "توصيل سريع",
+      averageRating: "متوسط التقييم",
+      testimonial: "خدمة رائعة! الحساب كان بالضبط كما هو موصوف والنقل كان سلساً. أنصح به بشدة!",
+      ctaTitle: "جاهز للحصول على حساب أحلامك؟",
+      ctaSubtitle: "انضم إلى مئات العملاء الراضين واعثر على حساب eFootball المثالي لك اليوم.",
+      browseAccounts: "تصفح الحسابات",
     },
     // Account titles
     accountTitles: {

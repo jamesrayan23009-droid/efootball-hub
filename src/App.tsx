@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { LanguageProvider } from "@/i18n/LanguageProvider";
 import Index from "./pages/Index";
 import ProductDetails from "./pages/ProductDetails";
+import Proofs from "./pages/Proofs";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/account/:id" element={<ProductDetails />} />
+              <Route path="/proofs" element={<Proofs />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </BrowserRouter>
