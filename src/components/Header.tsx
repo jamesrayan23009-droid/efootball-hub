@@ -21,22 +21,28 @@ export function Header() {
 
         <nav className="hidden items-center gap-8 md:flex">
           <a
-            href="#accounts"
+            href="/#accounts"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             {t.header.accounts}
           </a>
           <a
-            href="#featured"
+            href="/#featured"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             {t.header.featured}
           </a>
           <a
-            href="#how-it-works"
+            href="/#how-it-works"
             className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
           >
             {t.header.howItWorks}
+          </a>
+          <a
+            href="/proofs"
+            className="text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          >
+            {t.header.proofs}
           </a>
         </nav>
 
