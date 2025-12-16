@@ -18,6 +18,8 @@ export interface Account {
   platform: "mobile" | "console" | "pc";
   verified: boolean;
   featured?: boolean;
+  imageOverview: string;
+  images: string[];
 }
 
 export const accounts: Account[] = [
@@ -41,6 +43,17 @@ export const accounts: Account[] = [
     platform: "mobile",
     verified: true,
     featured: true,
+    imageOverview: "/placeholder.svg",
+    images: [
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+    ],
   },
   {
     id: "2",
@@ -60,6 +73,17 @@ export const accounts: Account[] = [
     level: 72,
     platform: "mobile",
     verified: true,
+    imageOverview: "/placeholder.svg",
+    images: [
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+    ],
   },
   {
     id: "3",
@@ -81,6 +105,17 @@ export const accounts: Account[] = [
     platform: "console",
     verified: true,
     featured: true,
+    imageOverview: "/placeholder.svg",
+    images: [
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+    ],
   },
   {
     id: "4",
@@ -100,6 +135,17 @@ export const accounts: Account[] = [
     level: 65,
     platform: "mobile",
     verified: true,
+    imageOverview: "/placeholder.svg",
+    images: [
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+    ],
   },
   {
     id: "5",
@@ -119,6 +165,17 @@ export const accounts: Account[] = [
     level: 70,
     platform: "pc",
     verified: true,
+    imageOverview: "/placeholder.svg",
+    images: [
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+    ],
   },
   {
     id: "6",
@@ -138,6 +195,17 @@ export const accounts: Account[] = [
     level: 58,
     platform: "mobile",
     verified: true,
+    imageOverview: "/placeholder.svg",
+    images: [
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+    ],
   },
   {
     id: "7",
@@ -157,6 +225,17 @@ export const accounts: Account[] = [
     level: 62,
     platform: "console",
     verified: true,
+    imageOverview: "/placeholder.svg",
+    images: [
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+    ],
   },
   {
     id: "8",
@@ -178,5 +257,16 @@ export const accounts: Account[] = [
     platform: "mobile",
     verified: true,
     featured: true,
+    imageOverview: "/placeholder.svg",
+    images: [
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+    ],
   },
 ];

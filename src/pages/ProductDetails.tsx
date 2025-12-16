@@ -21,44 +21,11 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-// Import team images
-import team1 from "@/assets/team-1.jpg";
-import team2 from "@/assets/team-2.jpg";
-import team3 from "@/assets/team-3.jpg";
-import team4 from "@/assets/team-4.jpg";
-import team5 from "@/assets/team-5.jpg";
-import team6 from "@/assets/team-6.jpg";
-import team7 from "@/assets/team-7.jpg";
-import team8 from "@/assets/team-8.jpg";
-
-// Import product detail images
-import detail1 from "@/assets/product-detail-1.jpg";
-import detail2 from "@/assets/product-detail-2.jpg";
-import detail3 from "@/assets/product-detail-3.jpg";
-import detail4 from "@/assets/product-detail-4.jpg";
-import detail5 from "@/assets/product-detail-5.jpg";
-import detail6 from "@/assets/product-detail-6.jpg";
-import detail7 from "@/assets/product-detail-7.jpg";
-import detail8 from "@/assets/product-detail-8.jpg";
-
 const platformIcons = {
   mobile: Smartphone,
   console: Gamepad,
   pc: Monitor,
 };
-
-const teamImages: Record<string, string> = {
-  "1": team1,
-  "2": team2,
-  "3": team3,
-  "4": team4,
-  "5": team5,
-  "6": team6,
-  "7": team7,
-  "8": team8,
-};
-
-const productImages = [detail1, detail2, detail3, detail4, detail5, detail6, detail7, detail8];
 
 export default function ProductDetails() {
   const { id } = useParams<{ id: string }>();
@@ -85,8 +52,8 @@ export default function ProductDetails() {
   const discount = account.originalPrice
     ? Math.round((1 - account.price / account.originalPrice) * 100)
     : 0;
-  const teamImage = teamImages[account.id] || team1;
   const accountTitle = t.accountTitles[account.id as keyof typeof t.accountTitles] || account.title;
+  const productImages = account.images;
 
   const platformNames = {
     mobile: t.filters.mobile,
