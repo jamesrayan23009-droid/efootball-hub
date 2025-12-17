@@ -7,19 +7,27 @@ import { Footer } from "@/components/Footer";
 import { accounts } from "@/data/accounts";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/i18n/LanguageProvider";
+import { SlidersHorizontal } from "lucide-react";
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 const Index = () => {
   const { t, language } = useLanguage();
   const [searchQuery, setSearchQuery] = useState("");
   const [minTeamStrength, setMinTeamStrength] = useState(0);
-  const [platform, setPlatform] = useState("all");
+  const [system, setSystem] = useState("all");
   const [verifiedOnly, setVerifiedOnly] = useState(false);
   const [sortBy, setSortBy] = useState("featured");
 
   const resetFilters = () => {
     setSearchQuery("");
     setMinTeamStrength(0);
-    setPlatform("all");
+    setSystem("all");
     setVerifiedOnly(false);
     setSortBy("featured");
   };
@@ -48,9 +56,9 @@ const Index = () => {
     // Team strength filter
     result = result.filter((account) => account.teamStrength >= minTeamStrength);
 
-    // Platform filter
-    if (platform !== "all") {
-      result = result.filter((account) => account.platform === platform);
+    // System filter
+    if (system !== "all") {
+      result = result.filter((account) => account.system === system);
     }
 
     // Verified filter
@@ -79,7 +87,7 @@ const Index = () => {
     }
 
     return result;
-  }, [searchQuery, minTeamStrength, platform, verifiedOnly, sortBy]);
+  }, [searchQuery, minTeamStrength, system, verifiedOnly, sortBy]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -99,17 +107,45 @@ const Index = () => {
                   {filteredAccounts.length} {filteredAccounts.length === 1 ? t.accountsSection.foundSingular : t.accountsSection.found}
                 </p>
               </div>
+              
+              {/* Mobile Filters Button */}
+              <Sheet>
+                <SheetTrigger asChild>
+                  <Button variant="outline" className="lg:hidden flex items-center gap-2">
+                    <SlidersHorizontal className="h-4 w-4" />
+                    {t.filters.title}
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side={language === 'ar' ? 'right' : 'left'} className="w-[300px] sm:w-[350px] overflow-y-auto">
+                  <SheetHeader>
+                    <SheetTitle>{t.filters.title}</SheetTitle>
+                  </SheetHeader>
+                  <div className="mt-6">
+                    <Filters
+                      minTeamStrength={minTeamStrength}
+                      onMinTeamStrengthChange={setMinTeamStrength}
+                      system={system}
+                      onSystemChange={setSystem}
+                      verifiedOnly={verifiedOnly}
+                      onVerifiedOnlyChange={setVerifiedOnly}
+                      sortBy={sortBy}
+                      onSortByChange={setSortBy}
+                      onReset={resetFilters}
+                    />
+                  </div>
+                </SheetContent>
+              </Sheet>
             </div>
 
             <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
-              {/* Filters sidebar */}
+              {/* Filters sidebar - Desktop */}
               <aside className="hidden lg:block">
                 <div className="sticky top-24">
                   <Filters
                     minTeamStrength={minTeamStrength}
                     onMinTeamStrengthChange={setMinTeamStrength}
-                    platform={platform}
-                    onPlatformChange={setPlatform}
+                    system={system}
+                    onSystemChange={setSystem}
                     verifiedOnly={verifiedOnly}
                     onVerifiedOnlyChange={setVerifiedOnly}
                     sortBy={sortBy}

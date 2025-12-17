@@ -1,4 +1,4 @@
-import { Crown, Shield, Star, Coins, Monitor, Smartphone, Gamepad } from "lucide-react";
+import { Crown, Shield, Star, Coins, Smartphone } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Account } from "@/data/accounts";
@@ -10,25 +10,23 @@ interface AccountCardProps {
   index: number;
 }
 
-const platformIcons = {
-  mobile: Smartphone,
-  console: Gamepad,
-  pc: Monitor,
+const systemIcons = {
+  android: Smartphone,
+  iphone: Smartphone,
 };
 
 export function AccountCard({ account, index }: AccountCardProps) {
   const { t, language, isRTL } = useLanguage();
   const navigate = useNavigate();
   
-  const PlatformIcon = platformIcons[account.platform];
+  const SystemIcon = systemIcons[account.system];
   const discount = account.originalPrice
     ? Math.round((1 - account.price / account.originalPrice) * 100)
     : 0;
   
-  const platformNames = {
-    mobile: t.filters.mobile,
-    console: t.filters.console,
-    pc: t.filters.pc,
+  const systemNames = {
+    android: t.filters.android,
+    iphone: t.filters.iphone,
   };
 
   const accountTitle = t.accountTitles[account.id as keyof typeof t.accountTitles] || account.title;
@@ -74,8 +72,8 @@ export function AccountCard({ account, index }: AccountCardProps) {
           
           <div className="flex items-center gap-2">
             <div className="flex items-center gap-1.5 rounded-lg bg-card/90 backdrop-blur-sm px-2.5 py-1.5">
-              <PlatformIcon className="h-4 w-4 text-muted-foreground" />
-              <span className="text-xs font-medium text-muted-foreground">{platformNames[account.platform]}</span>
+              <SystemIcon className="h-4 w-4 text-muted-foreground" />
+              <span className="text-xs font-medium text-muted-foreground">{systemNames[account.system]}</span>
             </div>
             {account.verified && (
               <div className="flex items-center gap-1 rounded-lg bg-primary/90 backdrop-blur-sm px-2.5 py-1.5">

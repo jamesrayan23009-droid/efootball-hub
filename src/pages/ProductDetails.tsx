@@ -12,19 +12,16 @@ import {
   Star, 
   Shield, 
   Coins, 
-  Monitor, 
   Smartphone, 
-  Gamepad, 
   ShoppingCart,
   ChevronLeft,
   ChevronRight
 } from "lucide-react";
 import { useState } from "react";
 
-const platformIcons = {
-  mobile: Smartphone,
-  console: Gamepad,
-  pc: Monitor,
+const systemIcons = {
+  android: Smartphone,
+  iphone: Smartphone,
 };
 
 export default function ProductDetails() {
@@ -48,17 +45,16 @@ export default function ProductDetails() {
     );
   }
 
-  const PlatformIcon = platformIcons[account.platform];
+  const SystemIcon = systemIcons[account.system];
   const discount = account.originalPrice
     ? Math.round((1 - account.price / account.originalPrice) * 100)
     : 0;
   const accountTitle = t.accountTitles[account.id as keyof typeof t.accountTitles] || account.title;
   const productImages = account.images;
 
-  const platformNames = {
-    mobile: t.filters.mobile,
-    console: t.filters.console,
-    pc: t.filters.pc,
+  const systemNames = {
+    android: t.filters.android,
+    iphone: t.filters.iphone,
   };
 
   const nextImage = () => {
@@ -175,8 +171,8 @@ export default function ProductDetails() {
                 </div>
 
                 <div className="flex items-center gap-2 rounded-lg bg-card border border-border px-3 py-2">
-                  <PlatformIcon className="h-4 w-4 text-muted-foreground" />
-                  <span className="text-sm">{platformNames[account.platform]}</span>
+                  <SystemIcon className="h-4 w-4 text-muted-foreground" />
+                  <span className="text-sm">{systemNames[account.system]}</span>
                 </div>
               </div>
             </div>
