@@ -15,7 +15,7 @@ export interface Account {
   epicCount: number;
   coins: number;
   level: number;
-  platform: "mobile" | "console" | "pc";
+  system: "android" | "iphone";
   verified: boolean;
   featured?: boolean;
   imageOverview: string;
@@ -40,7 +40,7 @@ export const accounts: Account[] = [
     epicCount: 45,
     coins: 2500000,
     level: 85,
-    platform: "mobile",
+    system: "android",
     verified: true,
     featured: true,
     imageOverview: "/placeholder.svg",
@@ -71,7 +71,7 @@ export const accounts: Account[] = [
     epicCount: 32,
     coins: 1200000,
     level: 72,
-    platform: "mobile",
+    system: "iphone",
     verified: true,
     imageOverview: "/placeholder.svg",
     images: [
@@ -102,7 +102,7 @@ export const accounts: Account[] = [
     epicCount: 38,
     coins: 1800000,
     level: 78,
-    platform: "console",
+    system: "android",
     verified: true,
     featured: true,
     imageOverview: "/placeholder.svg",
@@ -133,7 +133,7 @@ export const accounts: Account[] = [
     epicCount: 28,
     coins: 980000,
     level: 65,
-    platform: "mobile",
+    system: "iphone",
     verified: true,
     imageOverview: "/placeholder.svg",
     images: [
@@ -163,7 +163,7 @@ export const accounts: Account[] = [
     epicCount: 35,
     coins: 1450000,
     level: 70,
-    platform: "pc",
+    system: "android",
     verified: true,
     imageOverview: "/placeholder.svg",
     images: [
@@ -193,7 +193,7 @@ export const accounts: Account[] = [
     epicCount: 25,
     coins: 750000,
     level: 58,
-    platform: "mobile",
+    system: "iphone",
     verified: true,
     imageOverview: "/placeholder.svg",
     images: [
@@ -223,7 +223,7 @@ export const accounts: Account[] = [
     epicCount: 30,
     coins: 890000,
     level: 62,
-    platform: "console",
+    system: "android",
     verified: true,
     imageOverview: "/placeholder.svg",
     images: [
@@ -254,7 +254,7 @@ export const accounts: Account[] = [
     epicCount: 42,
     coins: 2100000,
     level: 80,
-    platform: "mobile",
+    system: "iphone",
     verified: true,
     featured: true,
     imageOverview: "/placeholder.svg",

@@ -15,8 +15,8 @@ import { useLanguage } from "@/i18n/LanguageProvider";
 interface FiltersProps {
   minTeamStrength: number;
   onMinTeamStrengthChange: (value: number) => void;
-  platform: string;
-  onPlatformChange: (value: string) => void;
+  system: string;
+  onSystemChange: (value: string) => void;
   verifiedOnly: boolean;
   onVerifiedOnlyChange: (value: boolean) => void;
   sortBy: string;
@@ -27,8 +27,8 @@ interface FiltersProps {
 export function Filters({
   minTeamStrength,
   onMinTeamStrengthChange,
-  platform,
-  onPlatformChange,
+  system,
+  onSystemChange,
   verifiedOnly,
   onVerifiedOnlyChange,
   sortBy,
@@ -69,18 +69,17 @@ export function Filters({
           </div>
         </div>
 
-        {/* Platform Filter */}
+        {/* System Filter */}
         <div className="space-y-3">
-          <Label className="text-sm font-medium">{t.filters.platform}</Label>
-          <Select value={platform} onValueChange={onPlatformChange}>
+          <Label className="text-sm font-medium">{t.filters.system}</Label>
+          <Select value={system} onValueChange={onSystemChange}>
             <SelectTrigger className="bg-secondary/50">
-              <SelectValue placeholder={t.filters.allPlatforms} />
+              <SelectValue placeholder={t.filters.allSystems} />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="all">{t.filters.allPlatforms}</SelectItem>
-              <SelectItem value="mobile">{t.filters.mobile}</SelectItem>
-              <SelectItem value="console">{t.filters.console}</SelectItem>
-              <SelectItem value="pc">{t.filters.pc}</SelectItem>
+              <SelectItem value="all">{t.filters.allSystems}</SelectItem>
+              <SelectItem value="android">{t.filters.android}</SelectItem>
+              <SelectItem value="iphone">{t.filters.iphone}</SelectItem>
             </SelectContent>
           </Select>
         </div>
